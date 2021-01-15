@@ -1,0 +1,76 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/action-light-toggle", 
+      "Name": "Toggle Entity", 
+      "States": [
+        {
+          "Image": "images/key-light-off"
+        },
+        {
+          "Image": "images/key-light-on"
+        }
+      ], 
+      "Tooltip": "Toggle a Home assistant entity on and off", 
+      "UUID": "me.guyo.hass.toggle"
+    },
+    {
+      "Icon": "images/action-light-cycle", 
+      "Name": "Cycle Color", 
+      "States": [
+        {
+          "Image": "images/key-rgb-cycle"
+        }
+      ], 
+      "Tooltip": "Cycle RGB light color", 
+      "UUID": "me.guyo.hass.light_color"
+    },
+    {
+      "Icon": "images/action-default", 
+      "Name": "Call Service", 
+      "States": [
+        {
+          "Image": "images/key-default"
+        }
+      ], 
+      "Tooltip": "Call a Home assistant service", 
+      "UUID": "me.guyo.hass.service"
+    },
+    {
+      "Icon": "images/action-default", 
+      "Name": "State Display", 
+      "States": [
+        {
+          "Image": "images/key-default-bg"
+        }
+      ], 
+      "Tooltip": "Display the state of a Home Assistant entity", 
+      "UUID": "me.guyo.hass.state"
+    }
+  ], 
+  "SDKVersion": 2,
+  "Author": "Guillaume STRUB", 
+  "CodePath": "index.html", 
+  "Category": "Home Assistant",
+  "CategoryIcon": "images/ha-cat", 
+  "PropertyInspectorPath": "pi/index.html", 
+  "Description": "Home assistant plugin for Stream Deck", 
+  "Name": "Home Assistant", 
+  "Icon": "images/light_off", 
+  "URL": "https://www.elgato.com/en/gaming/stream-deck", 
+  "Version": "1.0.0",
+  "OS": [
+    {
+        "Platform": "mac", 
+        "MinimumVersion" : "10.11"
+    },
+    {
+        "Platform": "windows", 
+        "MinimumVersion" : "10"
+    }
+  ],
+  "Software": 
+    {
+        "MinimumVersion" : "4.1"
+  }
+}

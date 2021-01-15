@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>me.guyo.hass.pi</title>
+        <meta charset="UTF-8">
+        <!-- Import style sheets -->
+        <link rel="stylesheet" type="text/css" href="css/sdpi.css">
+        <!-- Import scripts -->
+        <script src="../utils.js"></script>
+        <script src="js/property_inspector.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <!-- Property Inspector -->
+        <div class="sdpi-wrapper" id="pi">
+            <!-- Placeholder for more UI elements -->
+            <div id="placeholder"></div>
+            <!-- Home Assistant Auth Configuration -->
+            <div class="sdpi-item">
+                <div class="sdpi-item-label empty"></div>
+                <button class="sdpi-item-value" id="open_setup">Setup Home Assistant</button>
+              </div>
+        </div>
+        <!-- Floating tooltips element -->
+        <div class="sdpi-info-label hidden" style="top: -1000px;" value=""></div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>me.guyo.hass.pi.setup</title>
+	<meta charset="utf-8" />
+	<!-- Import style sheets -->
+	<link rel="stylesheet" type="text/css" href="css/sdpi.css">
+	<!-- Import scripts -->
+	<script src="../haws.umd.js"></script>
+</head>
+
+<body onload="loaded()">
+	<div class="sdpi-wrapper">
+		
+		<div class="sdpi-heading">Home Assistant Configuration</div>
+		<div style="text-align: center"></div>
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Host</div>
+			<input id="hass_host" class="sdpi-item-value" type="text" value="http://your-hass-instance:8123" />
+		</div>
+
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Long-lived Auth Token</div>
+			<input id="hass_token" class="sdpi-item-value" type="text" value="" />
+		</div>
+
+		<div class="sdpi-item">
+			<div class="sdpi-item-label empty"></div>
+			<button id="test_hass_auth" type="button" class="sdpi-item-value" onclick="testHassAuth()">Test</button>
+			<button id="save_hass_auth" type="button" class="sdpi-item-value" onclick="saveHassAuth()">Save</button>
+			
+		</div>
+
+		<div class="sdpi-item">
+			<div class="sdpi-item-label">Test result</div>
+			<div id="hass_auth_result" class="sdpi-item-value"></div>
+		</div>
+	</div>
+	</div>
+
+	
+	<script>
+		function saveHassAuth() {
+			var authInfo = {
+				'host': document.getElementById('hass_host').value,
+				'token': document.getElementById('hass_token').value
+			};
+
+			var event = new CustomEvent('saveHassAuth', {detail: authInfo});
+			window.opener.document.dispatchEvent(event);
+			window.close();
+		}
+
+		async function connectHass(host, token) {
+			const resultArea = document.querySelector('#hass_auth_result');
+			try {
+				const auth = HAWS.createLongLivedTokenAuth(host, token);
+				await HAWS.createConnection({ auth });
+				
+				resultArea.innerHTML = "Connection Success!";
+			} catch (err) {
+				resultArea.innerHTML = "Connection Failed: " + err;
+			}
+		};
+
+		function testHassAuth() {
+			connectHass(document.getElementById('hass_host').value, document.getElementById('hass_token').value);
+		}
+	</script>
+	
+</body>
+
+</html>
